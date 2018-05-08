@@ -5,7 +5,8 @@
     android:layout_height="match_parent"
     tools:context="com.suveng.calculatorsu.MainActivity"
     android:orientation="vertical"
-    android:background="@drawable/id_58814589">
+    android:background="@drawable/id_58814589"
+    >
 
     <TextView
         android:id="@+id/tv_show"

@@ -39,6 +39,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View view) {
+        String numToString="";
         switch (view.getId()){
             case R.id.btn_num0:
                 textView.append("0");
@@ -85,30 +86,53 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 items.clear();
                 break;
             case R.id.btn_minus:
+                numToString=textView.getText().toString();
+                if (numToString.equals("")){
+                    break;
+                }
                 items.add(new Item(Double.parseDouble(textView.getText().toString()),Types.NUM));
                 checkAndCompute();
                 items.add(new Item(0,Types.MINUS));
                 textView.setText("");
                 break;
             case R.id.btn_plus:
-                items.add(new Item(Double.parseDouble(textView.getText().toString()),Types.NUM));
-                checkAndCompute();
-                items.add(new Item(0,Types.PLUS));
-                textView.setText("");
+                numToString=textView.getText().toString();
+                if (numToString.equals("")){
+                    break;
+                }
+                    Double num=Double.parseDouble(textView.getText().toString());
+                    items.add(new Item(num,Types.NUM));
+                    checkAndCompute();
+                    items.add(new Item(0,Types.PLUS));
+                    textView.setText("");
+
+
                 break;
             case R.id.btn_multiple:
+                numToString=textView.getText().toString();
+                if (numToString.equals("")){
+                    break;
+                }
                 items.add(new Item(Double.parseDouble(textView.getText().toString()),Types.NUM));
                 checkAndCompute();
                 items.add(new Item(0,Types.MULTIPLE));
                 textView.setText("");
                 break;
             case R.id.btn_division:
+                numToString=textView.getText().toString();
+                if (numToString.equals("")){
+                    break;
+                }
                 items.add(new Item(Double.parseDouble(textView.getText().toString()),Types.NUM));
                 checkAndCompute();
                 items.add(new Item(0,Types.DIVISION));
                 textView.setText("");
                 break;
             case R.id.btn_equal:
+                numToString=textView.getText().toString();
+                if (numToString.equals("")){
+                    break;
+                }
                 items.add(new Item(Double.parseDouble(textView.getText().toString()),Types.NUM));
                 checkAndCompute();
                 textView.setText(String.valueOf(items.get(0).value));
